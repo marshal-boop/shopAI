@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shopAI — Build, Ship &amp; Host Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html { scroll-behavior: smooth; font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+      h1, h2, h3, .font-display { font-family: "Bricolage Grotesque", system-ui, sans-serif; }
+      .font-mono { font-family: "JetBrains Mono", monospace; }
+      .tabular-nums { font-variant-numeric: tabular-nums; }
+    </style>
+  </head>
+  <body class="bg-[#F9FAFC] text-[#1F2D3D] antialiased">
+    <!-- TOP BAR -->
+    <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-8 px-6 py-3.5">
+        <a href="#top" class="font-display text-xl font-extrabold tracking-tight text-[#EC3750] whitespace-nowrap shrink-0">
+          shopAI
+        </a>
+        <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-600 md:flex">
+          <a href="#projects" class="hover:text-[#1F2D3D] hover:underline underline-offset-4 whitespace-nowrap">Projects</a>
+          <a href="#ai-studio" class="hover:text-[#1F2D3D] hover:underline underline-offset-4 whitespace-nowrap">AI Studio</a>
+          <a href="#domain-host" class="hover:text-[#1F2D3D] hover:underline underline-offset-4 whitespace-nowrap">Domains</a>
+          <a href="#events" class="hover:text-[#1F2D3D] hover:underline underline-offset-4 whitespace-nowrap">Events</a>
+          <a href="#community-fund" class="hover:text-[#1F2D3D] hover:underline underline-offset-4 whitespace-nowrap">Donate</a>
+        </nav>
+        <button
+          id="nav-auth-btn"
+          type="button"
+          class="rounded-lg bg-[#EC3750] px-4 py-2 text-xs font-semibold text-white hover:bg-[#D62841] whitespace-nowrap shrink-0"
+        >
+          Sign In
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="border-b border-slate-200 bg-white py-14 lg:py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch">
+            <div class="flex flex-col justify-center lg:col-span-6">
+              <p class="text-sm font-semibold text-[#EC3750]">Open Maker Community · Netily Club</p>
+              <h1 class="mt-3 font-display text-4xl font-extrabold tracking-tight text-[#1F2D3D] sm:text-5xl">
+                Build, vibe code, and ship together at shopAI.
+              </h1>
+              <p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
+                A student &amp; indie maker studio modeled on Hack Club principles. Prototype apps in the
+                AI Vibe Coding studio, host on free or paid shopAI domains, join weekly events on Netily Slack,
+                sell hardware kits, and support makers through our open community fund.
+              </p>
+              <div class="mt-7 flex flex-wrap items-center gap-4">
+                <a href="#ai-studio" class="rounded-lg bg-[#EC3750] px-6 py-3 text-sm font-semibold text-white hover:bg-[#D62841]">
+                  Start Vibe Coding
+                </a>
+                <a
+                  href="https://netily-club.slack.com/archives/C0CCWSXJCUQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-[#1F2D3D] hover:bg-slate-50"
+                >
+                  Join Netily Slack
+                </a>
+              </div>
+              <p id="hero-user-status" class="mt-5 text-xs text-slate-500">
+                Need a maker badge? Click <strong class="text-slate-700">Sign In</strong> to claim your permanent <span class="font-mono">SHP-XXXX</span> User ID.
+              </p>
+            </div>
+
+            <div class="lg:col-span-6">
+              <div class="relative flex h-full min-h-[280px] flex-col justify-end overflow-hidden rounded-xl border border-slate-200 bg-slate-900">
+                <svg viewBox="0 0 800 450" class="absolute inset-0 h-full w-full object-cover" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#1E293B" />
+                      <stop offset="60%" stop-color="#0F172A" />
+                      <stop offset="100%" stop-color="#3B0D16" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="800" height="450" fill="url(#heroGrad)" />
+                  <g stroke="#334155" stroke-width="1" opacity="0.45">
+                    <path d="M0 75H800M0 150H800M0 225H800M0 300H800M0 375H800" />
+                    <path d="M100 0V450M200 0V450M300 0V450M400 0V450M500 0V450M600 0V450M700 0V450" />
+                  </g>
+                  <rect x="90" y="95" width="320" height="200" rx="14" fill="#111827" stroke="#475569" stroke-width="2" />
+                  <circle cx="114" cy="117" r="5" fill="#EC3750" />
+                  <circle cx="132" cy="117" r="5" fill="#F59E0B" />
+                  <circle cx="150" cy="117" r="5" fill="#10B981" />
+                  <rect x="112" y="142" width="160" height="10" rx="4" fill="#EC3750" opacity="0.9" />
+                  <rect x="112" y="164" width="240" height="8" rx="4" fill="#64748B" />
+                  <rect x="112" y="182" width="200" height="8" rx="4" fill="#475569" />
+                  <rect x="112" y="200" width="220" height="8" rx="4" fill="#38BDF8" opacity="0.8" />
+                  <rect x="460" y="130" width="240" height="165" rx="14" fill="#0B1220" stroke="#EC3750" stroke-width="2" />
+                  <rect x="488" y="162" width="184" height="18" rx="4" fill="#1E293B" />
+                  <circle cx="502" cy="171" r="4" fill="#10B981" />
+                  <rect x="488" y="194" width="184" height="18" rx="4" fill="#1E293B" />
+                  <circle cx="502" cy="203" r="4" fill="#38BDF8" />
+                  <rect x="488" y="226" width="184" height="18" rx="4" fill="#1E293B" />
+                  <circle cx="502" cy="235" r="4" fill="#F59E0B" />
+                </svg>
+                <div class="relative bg-gradient-to-t from-black/80 via-black/35 to-transparent p-6 text-white">
+                  <p class="text-xs font-medium text-white/80">Hardware · Vibe Coding · Cloud Hosting</p>
+                  <p class="mt-1 text-base font-bold">Weekly maker sprints powered by shopAI &amp; Netily Club</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-COLUMN STATS STRIP -->
+          <div class="mt-12 grid grid-cols-2 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-[#F9FAFC] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+            <div class="p-5">
+              <p class="text-xs font-medium text-slate-500">Active Makers</p>
+              <p id="stat-makers" class="mt-1 font-mono text-2xl font-bold tabular-nums">145</p>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-medium text-slate-500">Shipped Projects</p>
+              <p id="stat-projects" class="mt-1 font-mono text-2xl font-bold tabular-nums">3</p>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-medium text-slate-500">Hosted Domains</p>
+              <p id="stat-domains" class="mt-1 font-mono text-2xl font-bold text-[#2563EB] tabular-nums">4</p>
+            </div>
+            <div class="p-5">
+              <p class="text-xs font-medium text-slate-500">Community Fund</p>
+              <p id="stat-fund" class="mt-1 font-mono text-2xl font-bold text-emerald-700 tabular-nums">$1,858</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01. PROJECTS -->
+      <section id="projects" class="py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p class="text-sm font-semibold text-[#EC3750]">01. Maker Projects Gallery</p>
+              <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+                Real hardware and vibe-coded apps shipped by shopAI makers.
+              </h2>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <div id="project-filters" class="flex items-center gap-1 rounded-lg bg-slate-100 p-1">
+                <button data-cat="All" class="filter-btn rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-slate-900 shadow-xs">All</button>
+                <button data-cat="Hardware" class="filter-btn rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600">Hardware</button>
+                <button data-cat="Vibe Code" class="filter-btn rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600">Vibe Code</button>
+                <button data-cat="Open Source" class="filter-btn rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600">Open Source</button>
+              </div>
+              <button id="toggle-project-form" class="rounded-lg bg-[#EC3750] px-4 py-2 text-xs font-semibold text-white hover:bg-[#D62841]">
+                + Ship a Project
+              </button>
+            </div>
+          </div>
+
+          <form id="project-form" class="mt-8 hidden rounded-xl border border-slate-200 bg-white p-6">
+            <h3 class="text-base font-bold">Submit Your Build</h3>
+            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <input id="proj-title" required placeholder="Project title" class="rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+              <select id="proj-cat" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
+                <option value="Vibe Code">Vibe Code</option>
+                <option value="Hardware">Hardware</option>
+                <option value="Open Source">Open Source</option>
+              </select>
+              <input id="proj-url" placeholder="Hosted URL (e.g., myapp.shopai.dev)" class="rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm" />
+            </div>
+            <textarea id="proj-summary" required rows="2" placeholder="What does it do?" class="mt-3 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"></textarea>
+            <div class="mt-4 flex justify-end gap-2">
+              <button type="button" id="cancel-project-form" class="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold">Cancel</button>
+              <button type="submit" class="rounded-lg bg-[#EC3750] px-4 py-2 text-xs font-semibold text-white">Publish Project</button>
+            </div>
+          </form>
+
+          <div id="projects-grid" class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <!-- 02. AI VIBE CODING STUDIO -->
+      <section id="ai-studio" class="border-t border-slate-200 bg-white py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="max-w-2xl">
+            <p class="text-sm font-semibold text-[#EC3750]">02. Coding &amp; Vibe Coding Studio</p>
+            <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+              Describe an idea, generate code, and deploy straight to a shopAI domain.
+            </h2>
+          </div>
+
+          <div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-12">
+            <form id="vibe-form" class="space-y-4 rounded-xl border border-slate-200 bg-[#F9FAFC] p-6 lg:col-span-5">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700">What are you building today?</label>
+                <textarea id="vibe-prompt" rows="4" class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm">Pomodoro focus timer with Hack Club theme</textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700">Target Stack</label>
+                <select id="vibe-stack" class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm">
+                  <option>HTML + Vanilla JS</option>
+                  <option>React + Tailwind</option>
+                  <option>Python + FastAPI</option>
+                  <option>Arduino / ESP32</option>
+                </select>
+              </div>
+              <button type="submit" class="w-full rounded-lg bg-[#EC3750] px-5 py-3 text-sm font-semibold text-white hover:bg-[#D62841]">
+                Generate App &amp; Code
+              </button>
+            </form>
+
+            <div class="flex flex-col rounded-xl border border-slate-200 bg-white lg:col-span-7">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3.5">
+                <div>
+                  <p id="vibe-title" class="text-sm font-bold">Vibe Code Workbench</p>
+                  <p id="vibe-meta" class="text-xs text-slate-500">Generate a build to inspect live preview &amp; source code</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button type="button" id="vibe-tab-preview" class="rounded-md bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-900">Preview</button>
+                  <button type="button" id="vibe-tab-code" class="rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600">Code</button>
+                  <button type="button" id="vibe-deploy-btn" class="hidden rounded-lg bg-[#1F2D3D] px-3 py-1.5 text-xs font-semibold text-white">Deploy to Domain</button>
+                </div>
+              </div>
+              <div class="flex-1 p-4">
+                <iframe id="vibe-preview-frame" title="Vibe Code Preview" class="h-72 w-full rounded-lg border border-slate-200 bg-slate-50"></iframe>
+                <pre id="vibe-code-box" class="hidden h-72 overflow-auto rounded-lg bg-[#111827] p-4 font-mono text-xs text-slate-200"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. FREE & PAID DOMAIN HOSTING -->
+      <section id="domain-host" class="border-t border-slate-200 bg-[#F9FAFC] py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
+            <div class="lg:col-span-5">
+              <p class="text-sm font-semibold text-[#EC3750]">03. Free &amp; Paid Domain Hosting</p>
+              <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+                Manage free subdomains or custom domains and host instantly.
+              </h2>
+              <p class="mt-3 text-base text-slate-600">
+                Claim free <span class="font-mono text-slate-800">.shopai.dev</span> or
+                <span class="font-mono text-slate-800">.maker.club</span> subdomains ($0/yr), or register paid custom domains
+                (<span class="font-mono text-slate-800">.ai, .com, .dev, .org</span>).
+              </p>
+              <div class="mt-6 space-y-3 rounded-xl border border-slate-200 bg-white p-5 text-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <span class="font-semibold">Free Maker Subdomains</span>
+                  <span class="font-mono text-xs font-semibold text-emerald-700">$0 / year</span>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <span class="font-semibold">Paid Custom Domains</span>
+                  <span class="font-mono text-xs font-semibold text-slate-700">$12 – $18 / year</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <form id="domain-form" class="rounded-xl border border-slate-200 bg-white p-6">
+                <div class="grid grid-cols-1 gap-3 sm:grid-cols-12">
+                  <input id="dom-slug" value="my-maker-site" class="rounded-lg border border-slate-300 px-3 py-2.5 font-mono text-sm sm:col-span-5" placeholder="my-site" />
+                  <select id="dom-tld" class="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm sm:col-span-4">
+                    <option value=".shopai.dev">.shopai.dev · Free ($0/yr)</option>
+                    <option value=".maker.club">.maker.club · Free ($0/yr)</option>
+                    <option value=".dev">.dev · Paid ($12/yr)</option>
+                    <option value=".org">.org · Paid ($12/yr)</option>
+                    <option value=".ai">.ai · Paid ($18/yr)</option>
+                    <option value=".com">.com · Paid ($18/yr)</option>
+                  </select>
+                  <button type="button" id="check-dom-btn" class="rounded-lg border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-semibold sm:col-span-3">
+                    Check
+                  </button>
+                </div>
+                <p id="dom-check-msg" class="mt-2 text-xs text-slate-600"></p>
+                <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <input id="dom-project" value="shopAI Community Project" class="rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Project Title" />
+                  <input id="dom-stack" value="Static + Vibe Code" class="rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Stack" />
+                </div>
+                <div class="mt-4 flex justify-end">
+                  <button type="submit" class="rounded-lg bg-[#EC3750] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#D62841]">
+                    Claim Domain &amp; Host
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="mt-10 overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <div class="flex items-center justify-between border-b border-slate-200 px-5 py-3.5">
+              <h3 class="text-sm font-bold">Active shopAI Hosted Domains</h3>
+              <span id="domains-count" class="font-mono text-xs text-slate-500"></span>
+            </div>
+            <div id="domains-list" class="divide-y divide-slate-100"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. EVENTS -->
+      <section id="events" class="border-t border-slate-200 bg-white py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p class="text-sm font-semibold text-[#EC3750]">04. Community Events</p>
+              <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Weekly vibe-coding sprints &amp; demo days.</h2>
+            </div>
+            <button id="toggle-event-form" class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold hover:bg-slate-50">
+              + Host an Event
+            </button>
+          </div>
+
+          <form id="event-form" class="mt-8 hidden rounded-xl border border-slate-200 bg-[#F9FAFC] p-6">
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <input id="evt-title" required placeholder="Event title" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
+              <input id="evt-date" required value="Dec 12, 2026" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
+              <input id="evt-format" value="Online · Netily Slack" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
+            </div>
+            <textarea id="evt-desc" required rows="2" placeholder="Event details" class="mt-3 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"></textarea>
+            <div class="mt-3 flex justify-end gap-2">
+              <button type="button" id="cancel-event-form" class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold">Cancel</button>
+              <button type="submit" class="rounded-lg bg-[#EC3750] px-4 py-2 text-xs font-semibold text-white">Publish Event</button>
+            </div>
+          </form>
+
+          <div id="events-list" class="mt-10 divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 bg-[#F9FAFC]"></div>
+        </div>
+      </section>
+
+      <!-- 05. MARKETPLACE -->
+      <section id="marketplace" class="border-t border-slate-200 bg-[#F9FAFC] py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p class="text-sm font-semibold text-[#EC3750]">05. shopAI Maker Marketplace</p>
+              <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Buy or sell hardware kits, PCBs, and AI starters.</h2>
+            </div>
+            <button id="toggle-sell-form" class="rounded-lg bg-[#1F2D3D] px-4 py-2.5 text-xs font-semibold text-white hover:bg-slate-800">
+              + Sell a Kit or Project
+            </button>
+          </div>
+
+          <form id="sell-form" class="mt-8 hidden rounded-xl border border-slate-200 bg-white p-6">
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-4">
+              <input id="sell-title" required placeholder="Kit or template name" class="rounded-lg border border-slate-300 px-3 py-2 text-sm sm:col-span-2" />
+              <input id="sell-price" type="number" min="1" value="25" required class="rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm" />
+              <input id="sell-stock" type="number" min="1" value="10" required class="rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm" />
+            </div>
+            <input id="sell-desc" required placeholder="What is included?" class="mt-3 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+            <div class="mt-3 flex justify-end gap-2">
+              <button type="button" id="cancel-sell-form" class="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold">Cancel</button>
+              <button type="submit" class="rounded-lg bg-[#EC3750] px-4 py-2 text-xs font-semibold text-white">List Item</button>
+            </div>
+          </form>
+
+          <p id="market-msg" class="mt-4 text-sm font-medium text-emerald-700"></p>
+          <div id="market-grid" class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <!-- 06. COMMUNITY FUND & DONATIONS -->
+      <section id="community-fund" class="border-t border-slate-200 bg-white py-20">
+        <div class="mx-auto max-w-6xl px-6">
+          <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5" class="lg:col-span-5">
+              <p class="text-sm font-semibold text-[#EC3750]">06. shopAI Community Fund</p>
+              <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Transparent grants and donations for shopAI builders.</h2>
+              <div class="mt-6 rounded-xl border border-slate-200 bg-[#F9FAFC] p-6">
+                <p class="text-xs font-semibold text-slate-500">Community Fund Balance</p>
+                <p id="fund-balance" class="mt-1 font-mono text-3xl font-bold tabular-nums">$1,858</p>
+                <form id="donate-form" class="mt-5 space-y-3 border-t border-slate-200 pt-4">
+                  <input id="donor-name" placeholder="Donor or organization name" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
+                  <input id="donate-amount" type="number" min="1" value="25" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 font-mono text-sm" />
+                  <select id="donate-fund" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm">
+                    <option value="Hardware Grants">Hardware Grants</option>
+                    <option value="Free Domain Pool">Free Domain Pool</option>
+                    <option value="Event Stipends">Event Stipends</option>
+                    <option value="General Pool">General Pool</option>
+                  </select>
+                  <input id="donate-memo" placeholder="Public memo" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm" />
+                  <button type="submit" class="w-full rounded-lg bg-[#EC3750] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#D62841]">
+                    Donate to shopAI
+                  </button>
+                </form>
+                <p id="donate-msg" class="mt-3 text-xs font-medium text-emerald-700"></p>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-xl border border-slate-200 bg-white lg:col-span-7">
+              <div class="border-b border-slate-200 px-5 py-4">
+                <h3 class="text-base font-bold">Public Grants &amp; Donations Ledger</h3>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                  <thead class="border-b border-slate-200 bg-[#F9FAFC] text-xs font-semibold text-slate-500">
+                    <tr>
+                      <th class="px-5 py-3">Date</th>
+                      <th class="px-5 py-3">Description</th>
+                      <th class="px-5 py-3">Fund</th>
+                      <th class="px-5 py-3 text-right">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody id="fund-ledger" class="divide-y divide-slate-100"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLACK BANNER -->
+      <section class="border-t border-slate-200 bg-[#1F2D3D] py-16 text-white">
+        <div class="mx-auto flex max-w-6xl flex-col justify-between gap-6 px-6 md:flex-row md:items-center">
+          <div>
+            <p class="text-sm font-semibold text-[#FF7A8A]">Netily Club Slack Community</p>
+            <h2 class="mt-1 text-3xl font-bold">See you inside the shopAI maker channel on Slack.</h2>
+          </div>
+          <a
+            href="https://netily-club.slack.com/archives/C0CCWSXJCUQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-lg bg-[#EC3750] px-5 py-3 text-xs font-semibold text-white hover:bg-[#D62841] whitespace-nowrap"
+          >
+            Open Netily Slack
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- AUTH / USER ID MODAL -->
+    <div id="auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 p-4">
+      <div class="w-full max-w-md rounded-xl border border-slate-200 bg-white p-6 shadow-xl">
+        <div class="flex items-start justify-between border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-xl font-bold">shopAI Login &amp; User ID</h2>
+            <p class="mt-1 text-xs text-slate-500">Sign in to claim your permanent SHP-XXXX maker ID.</p>
+          </div>
+          <button id="close-auth-btn" class="px-2 py-1 text-sm font-bold text-slate-500 hover:text-slate-900">✕</button>
+        </div>
+
+        <div id="auth-logged-out" class="mt-5">
+          <form id="login-form" class="space-y-3">
+            <input id="login-email" type="email" required placeholder="you@school.edu" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+            <input id="login-name" required placeholder="Full Name" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
+            <input id="login-handle" required placeholder="Handle (e.g. alexcodes)" class="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm" />
+            <button type="submit" class="w-full rounded-lg bg-[#EC3750] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#D62841]">
+              Sign In &amp; Assign User ID
+            </button>
+          </form>
+        </div>
+
+        <div id="auth-logged-in" class="mt-5 hidden space-y-4">
+          <div class="rounded-xl border border-slate-200 bg-[#F9FAFC] p-4">
+            <p class="text-xs text-slate-500">Assigned shopAI User ID</p>
+            <p id="modal-user-id" class="mt-1 font-mono text-2xl font-bold text-[#EC3750]"></p>
+            <p id="modal-user-meta" class="mt-2 text-sm text-slate-700"></p>
+          </div>
+          <button id="logout-btn" class="w-full rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const STORAGE_KEY = "shopai_singlefile_v2";
+      const defaultState = {
+        user: null,
+        filter: "All",
+        projects: [
+          { id: "p1", title: "Crimson Desk Rover v2", summary: "Open-source autonomous rover with ESP32-S3 telemetry & ultrasonic sensors.", category: "Hardware", makerName: "Maya Lin", makerUserId: "SHP-1042", liveUrl: "rover.shopai.dev", upvotes: 48 },
+          { id: "p2", title: "VibePad 16-Step Sequencer", summary: "Tactile RGB MIDI matrix paired with a vibe-coded WebAudio synth engine.", category: "Vibe Code", makerName: "Devon Brooks", makerUserId: "SHP-1108", liveUrl: "vibepad.shopai.dev", upvotes: 63 },
+          { id: "p3", title: "SolarMesh LoRa Relay", summary: "Off-grid 915MHz weather & text relay powered by a 5W solar panel.", category: "Open Source", makerName: "Amrit Bhandari", makerUserId: "SHP-1001", liveUrl: "solarmesh.maker.club", upvotes: 39 }
+        ],
+        domains: [
+          { domain: "rover.shopai.dev", tier: "free", price: 0, owner: "SHP-1042", project: "Crimson Desk Rover Telemetry", stack: "React + WebSockets" },
+          { domain: "vibepad.shopai.dev", tier: "free", price: 0, owner: "SHP-1108", project: "VibePad Synth Studio", stack: "WebAudio + JS" },
+          { domain: "solarmesh.maker.club", tier: "free", price: 0, owner: "SHP-1001", project: "SolarMesh Live Map", stack: "Static Edge" },
+          { domain: "netilymakers.ai", tier: "paid", price: 18, owner: "SHP-1001", project: "Netily Showcase", stack: "Full-Stack Node" }
+        ],
+        events: [
+          { id: "e1", title: "shopAI Vibe Coding Night #14", date: "Nov 22, 2026", format: "Online · Netily Slack", desc: "Ship a full working micro-app in 90 minutes and host it on a free shopAI subdomain.", rsvps: ["SHP-1001", "SHP-1042"] },
+          { id: "e2", title: "PCB Soldering & Rover Demo Day", date: "Nov 29, 2026", format: "Hybrid", desc: "Test ultrasonic rovers and apply for shopAI Hardware Grants.", rsvps: ["SHP-1042"] }
+        ],
+        marketplace: [
+          { id: "m1", title: "Crimson Rover Hardware Kit", desc: "Aluminum chassis, 4x geared motors, ESP32-S3, and ultrasonic array.", price: 42, seller: "SHP-1042", stock: 14, sold: 23 },
+          { id: "m2", title: "VibePad 4x4 RGB MIDI Kit", desc: "Pre-flashed RP2040 PCB, silicone keycaps, and USB-C cable.", price: 29, seller: "SHP-1108", stock: 9, sold: 31 },
+          { id: "m3", title: "SolarMesh LoRa Node Kit", desc: "Laser-cut acrylic case, SX1276 LoRa module, and 5W solar panel.", price: 36, seller: "SHP-1001", stock: 11, sold: 17 }
+        ],
+        transactions: [
+          { date: "2026-10-05", title: "Founding Maker Grant Pool", party: "shopAI Community Sponsors", fund: "General Pool", amount: 1850 },
+          { date: "2026-10-18", title: "PCB Subsidy · Crimson Rover", party: "Maya Lin (SHP-1042)", fund: "Hardware Grants", amount: -240 },
+          { date: "2026-11-01", title: "Hackathon Fuel Fund", party: "Elena Vance", fund: "Event Stipends", amount: 350 },
+          { date: "2026-11-08", title: "Wildcard SSL & DNS Cluster", party: "shopAI Cloud Ops", fund: "Free Domain Pool", amount: -120 },
+          { date: "2026-11-12", title: "Domain: netilymakers.ai", party: "Amrit Bhandari (SHP-1001)", fund: "Free Domain Pool", amount: 18 }
+        ]
+      };
+
+      let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || defaultState;
+      const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+      function render() {
+        const fundBalance = state.transactions.reduce((sum, t) => sum + t.amount, 0);
+        document.getElementById("stat-makers").textContent = String(144 + (state.user ? 1 : 0));
+        document.getElementById("stat-projects").textContent = String(state.projects.length);
+        document.getElementById("stat-domains").textContent = String(state.domains.length);
+        document.getElementById("stat-fund").textContent = "$" + fundBalance.toLocaleString();
+        document.getElementById("fund-balance").textContent = "$" + fundBalance.toLocaleString();
+
+        const navBtn = document.getElementById("nav-auth-btn");
+        const heroStatus = document.getElementById("hero-user-status");
+        if (state.user) {
+          navBtn.textContent = "ID · " + state.user.userId;
+          heroStatus.innerHTML = `Signed in as <strong>${esc(state.user.name)}</strong> · User ID <span class="font-mono font-semibold text-[#EC3750]">${esc(state.user.userId)}</span>`;
+          document.getElementById("auth-logged-out").classList.add("hidden");
+          document.getElementById("auth-logged-in").classList.remove("hidden");
+          document.getElementById("modal-user-id").textContent = state.user.userId;
+          document.getElementById("modal-user-meta").textContent = `${state.user.name} (@${state.user.handle}) · ${state.user.email}`;
+        } else {
+          navBtn.textContent = "Sign In";
+          heroStatus.innerHTML = `Need a maker badge? Click <strong class="text-slate-700">Sign In</strong> to claim your permanent <span class="font-mono">SHP-XXXX</span> User ID.`;
+          document.getElementById("auth-logged-out").classList.remove("hidden");
+          document.getElementById("auth-logged-in").classList.add("hidden");
+        }
+
+        const list = state.filter === "All" ? state.projects : state.projects.filter((p) => p.category === state.filter);
+        document.getElementById("projects-grid").innerHTML = list.map((p) => `
+          <article class="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-5">
+            <div class="mb-4 flex h-36 items-center justify-center rounded-lg bg-[#F1F5F9] font-mono text-xs text-slate-500">
+              ${esc(p.category)} · ${esc(p.liveUrl)}
+            </div>
+            <p class="text-xs text-slate-500">${esc(p.category)} · ${esc(p.makerName)} · <span class="font-mono">${esc(p.makerUserId)}</span></p>
+            <h3 class="mt-2 text-lg font-bold">${esc(p.title)}</h3>
+            <p class="mt-2 flex-1 text-sm text-slate-600">${esc(p.summary)}</p>
+            <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+              <button onclick="upvoteProject('${p.id}')" class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold tabular-nums">▲ ${p.upvotes}</button>
+              <span class="font-mono text-xs text-[#2563EB]">${esc(p.liveUrl)}</span>
+            </div>
+          </article>
+        `).join("");
+
+        document.getElementById("domains-count").textContent = `${state.domains.length} live domains`;
+        document.getElementById("domains-list").innerHTML = state.domains.map((d) => `
+          <div class="flex flex-wrap items-center justify-between gap-4 px-5 py-3.5 text-sm">
+            <div>
+              <p class="font-mono font-semibold text-slate-900">${esc(d.domain)}</p>
+              <p class="text-xs text-slate-500">${esc(d.project)} · ${esc(d.owner)} · ${esc(d.stack)}</p>
+            </div>
+            <span class="font-mono text-xs text-slate-600">${d.tier === "free" ? "Free · $0/yr" : "Paid · $" + d.price + "/yr"}</span>
+          </div>
+        `).join("");
+
+        document.getElementById("events-list").innerHTML = state.events.map((e) => {
+          const going = state.user && e.rsvps.includes(state.user.userId);
+          return `
+            <div class="flex flex-col justify-between gap-4 p-6 md:flex-row md:items-center">
+              <div>
+                <p class="text-xs text-slate-500">${esc(e.date)} · ${esc(e.format)}</p>
+                <h3 class="mt-1 text-lg font-bold">${esc(e.title)}</h3>
+                <p class="mt-1 text-sm text-slate-600">${esc(e.desc)}</p>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <span class="font-mono text-xs font-semibold tabular-nums">${e.rsvps.length} RSVPs</span>
+                <button onclick="toggleRsvp('${e.id}')" class="rounded-lg px-4 py-2 text-xs font-semibold ${going ? "border border-emerald-600 bg-emerald-50 text-emerald-800" : "bg-[#EC3750] text-white"}">
+                  ${going ? "Going (Cancel)" : "RSVP Now"}
+                </button>
+              </div>
+            </div>`;
+        }).join("");
+
+        document.getElementById("market-grid").innerHTML = state.marketplace.map((m) => `
+          <article class="flex flex-col rounded-xl border border-slate-200 bg-white p-5">
+            <p class="text-xs text-slate-500">Seller <span class="font-mono">${esc(m.seller)}</span></p>
+            <h3 class="mt-2 text-lg font-bold">${esc(m.title)}</h3>
+            <p class="mt-2 flex-1 text-sm text-slate-600">${esc(m.desc)}</p>
+            <div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
+              <div>
+                <p class="font-mono text-xl font-bold tabular-nums">$${m.price}</p>
+                <p class="text-xs text-slate-500 tabular-nums">${m.stock} left · ${m.sold} sold</p>
+              </div>
+              <button onclick="buyItem('${m.id}')" ${m.stock <= 0 ? "disabled" : ""} class="rounded-lg bg-[#EC3750] px-4 py-2 text-xs font-semibold text-white disabled:bg-slate-300">
+                ${m.stock > 0 ? "Buy Kit" : "Sold Out"}
+              </button>
+            </div>
+          </article>
+        `).join("");
+
+        document.getElementById("fund-ledger").innerHTML = state.transactions.map((t) => `
+          <tr>
+            <td class="px-5 py-3 font-mono text-xs text-slate-500 whitespace-nowrap">${esc(t.date)}</td>
+            <td class="px-5 py-3"><p class="font-semibold">${esc(t.title)}</p><p class="text-xs text-slate-500">${esc(t.party)}</p></td>
+            <td class="px-5 py-3 text-xs text-slate-600 whitespace-nowrap">${esc(t.fund)}</td>
+            <td class="px-5 py-3 text-right font-mono font-semibold tabular-nums ${t.amount >= 0 ? "text-emerald-700" : "text-slate-700"}">
+              ${t.amount >= 0 ? "+$" + t.amount : "-$" + Math.abs(t.amount)}
+            </td>
+          </tr>
+        `).join("");
+      }
+
+      const openAuth = () => { document.getElementById("auth-modal").classList.replace("hidden", "flex"); };
+      const closeAuth = () => { document.getElementById("auth-modal").classList.replace("flex", "hidden"); };
+      document.getElementById("nav-auth-btn").onclick = openAuth;
+      document.getElementById("close-auth-btn").onclick = closeAuth;
+      document.getElementById("login-form").onsubmit = (e) => {
+        e.preventDefault();
+        const userId = "SHP-" + (1200 + Math.floor(Math.random() * 800));
+        state.user = {
+          userId,
+          email: document.getElementById("login-email").value.trim(),
+          name: document.getElementById("login-name").value.trim(),
+          handle: document.getElementById("login-handle").value.trim().toLowerCase()
+        };
+        save(); render(); closeAuth();
+      };
+      document.getElementById("logout-btn").onclick = () => { state.user = null; save(); render(); closeAuth(); };
+
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.onclick = () => {
+          state.filter = btn.dataset.cat;
+          document.querySelectorAll(".filter-btn").forEach((b) => {
+            b.className = b === btn
+              ? "filter-btn rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-slate-900 shadow-xs"
+              : "filter-btn rounded-md px-3 py-1.5 text-xs font-semibold text-slate-600";
+          });
+          render();
+        };
+      });
+      window.upvoteProject = (id) => {
+        const p = state.projects.find((x) => x.id === id);
+        if (p) { p.upvotes += 1; save(); render(); }
+      };
+      document.getElementById("toggle-project-form").onclick = () => {
+        if (!state.user) return openAuth();
+        document.getElementById("project-form").classList.toggle("hidden");
+      };
+      document.getElementById("cancel-project-form").onclick = () => document.getElementById("project-form").classList.add("hidden");
+      document.getElementById("project-form").onsubmit = (e) => {
+        e.preventDefault();
+        state.projects.unshift({
+          id: "p" + Date.now(),
+          title: document.getElementById("proj-title").value.trim(),
+          category: document.getElementById("proj-cat").value,
+          liveUrl: document.getElementById("proj-url").value.trim() || `${state.user.handle}.shopai.dev`,
+          summary: document.getElementById("proj-summary").value.trim(),
+          makerName: state.user.name,
+          makerUserId: state.user.userId,
+          upvotes: 1
+        });
+        e.target.reset();
+        e.target.classList.add("hidden");
+        save(); render();
+      };
+
+      let lastVibeHtml = "";
+      let lastVibeSlug = "vibe-app";
+      document.getElementById("vibe-form").onsubmit = (e) => {
+        e.preventDefault();
+        const prompt = document.getElementById("vibe-prompt").value.trim();
+        const stack = document.getElementById("vibe-stack").value;
+        lastVibeSlug = prompt.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 18).replace(/^-|-$/g, "") || "vibe-app";
+        lastVibeHtml = `<!doctype html><html><body style="font-family:system-ui;padding:24px;background:#f8fafc;color:#0f172a">
+          <span style="font-size:12px;color:#ec3750;font-weight:700">shopAI Vibe Build · ${esc(stack)}</span>
+          <h2 style="margin:8px 0">${esc(prompt)}</h2>
+          <p style="color:#475569">Interactive starter ready to deploy to <code>${esc(lastVibeSlug)}.shopai.dev</code>.</p>
+          <button onclick="this.textContent='Clicked! ('+(++c)+')'" style="padding:10px 16px;background:#ec3750;color:#fff;border:0;border-radius:8px;font-weight:600;cursor:pointer">Test Action</button>
+          <script>let c=0;<\/script></body></html>`;
+        document.getElementById("vibe-title").textContent = prompt.slice(0, 42);
+        document.getElementById("vibe-meta").textContent = `${stack} · Suggested host: ${lastVibeSlug}.shopai.dev`;
+        document.getElementById("vibe-preview-frame").srcdoc = lastVibeHtml;
+        document.getElementById("vibe-code-box").textContent = lastVibeHtml;
+        document.getElementById("vibe-deploy-btn").classList.remove("hidden");
+      };
+      document.getElementById("vibe-tab-preview").onclick = () => {
+        document.getElementById("vibe-preview-frame").classList.remove("hidden");
+        document.getElementById("vibe-code-box").classList.add("hidden");
+      };
+      document.getElementById("vibe-tab-code").onclick = () => {
+        document.getElementById("vibe-preview-frame").classList.add("hidden");
+        document.getElementById("vibe-code-box").classList.remove("hidden");
+      };
+      document.getElementById("vibe-deploy-btn").onclick = () => {
+        document.getElementById("dom-slug").value = lastVibeSlug;
+        document.getElementById("dom-project").value = document.getElementById("vibe-title").textContent;
+        document.getElementById("domain-host").scrollIntoView({ behavior: "smooth" });
+      };
+
+      document.getElementById("check-dom-btn").onclick = () => {
+        const slug = document.getElementById("dom-slug").value.toLowerCase().replace(/[^a-z0-9-]/g, "");
+        const tld = document.getElementById("dom-tld").value;
+        const full = slug + tld;
+        const taken = state.domains.some((d) => d.domain === full);
+        document.getElementById("dom-check-msg").textContent = taken
+          ? `${full} is already registered.`
+          : `${full} is available!`;
+      };
+      document.getElementById("domain-form").onsubmit = (e) => {
+        e.preventDefault();
+        if (!state.user) return openAuth();
+        const slug = document.getElementById("dom-slug").value.toLowerCase().replace(/[^a-z0-9-]/g, "");
+        const tld = document.getElementById("dom-tld").value;
+        const full = slug + tld;
+        if (state.domains.some((d) => d.domain === full)) {
+          document.getElementById("dom-check-msg").textContent = `${full} is already registered.`;
+          return;
+        }
+        const isFree = tld === ".shopai.dev" || tld === ".maker.club";
+        const price = isFree ? 0 : (tld === ".ai" || tld === ".com" ? 18 : 12);
+        state.domains.unshift({
+          domain: full,
+          tier: isFree ? "free" : "paid",
+          price,
+          owner: state.user.userId,
+          project: document.getElementById("dom-project").value.trim(),
+          stack: document.getElementById("dom-stack").value.trim()
+        });
+        if (price > 0) {
+          state.transactions.unshift({
+            date: new Date().toISOString().slice(0, 10),
+            title: `Domain: ${full}`,
+            party: `${state.user.name} (${state.user.userId})`,
+            fund: "Free Domain Pool",
+            amount: price
+          });
+        }
+        document.getElementById("dom-check-msg").textContent = `shopAI Cloud deployed ${full} with HTTPS active.`;
+        save(); render();
+      };
+
+      window.toggleRsvp = (id) => {
+        if (!state.user) return openAuth();
+        const ev = state.events.find((x) => x.id === id);
+        if (!ev) return;
+        const idx = ev.rsvps.indexOf(state.user.userId);
+        if (idx >= 0) ev.rsvps.splice(idx, 1);
+        else ev.rsvps.push(state.user.userId);
+        save(); render();
+      };
+      document.getElementById("toggle-event-form").onclick = () => {
+        if (!state.user) return openAuth();
+        document.getElementById("event-form").classList.toggle("hidden");
+      };
+      document.getElementById("cancel-event-form").onclick = () => document.getElementById("event-form").classList.add("hidden");
+      document.getElementById("event-form").onsubmit = (e) => {
+        e.preventDefault();
+        state.events.unshift({
+          id: "e" + Date.now(),
+          title: document.getElementById("evt-title").value.trim(),
+          date: document.getElementById("evt-date").value.trim(),
+          format: document.getElementById("evt-format").value.trim(),
+          desc: document.getElementById("evt-desc").value.trim(),
+          rsvps: [state.user.userId]
+        });
+        e.target.reset();
+        e.target.classList.add("hidden");
+        save(); render();
+      };
+
+      document.getElementById("toggle-sell-form").onclick = () => {
+        if (!state.user) return openAuth();
+        document.getElementById("sell-form").classList.toggle("hidden");
+      };
+      document.getElementById("cancel-sell-form").onclick = () => document.getElementById("sell-form").classList.add("hidden");
+      document.getElementById("sell-form").onsubmit = (e) => {
+        e.preventDefault();
+        state.marketplace.unshift({
+          id: "m" + Date.now(),
+          title: document.getElementById("sell-title").value.trim(),
+          price: Number(document.getElementById("sell-price").value),
+          stock: Number(document.getElementById("sell-stock").value),
+          desc: document.getElementById("sell-desc").value.trim(),
+          seller: state.user.userId,
+          sold: 0
+        });
+        e.target.reset();
+        e.target.classList.add("hidden");
+        save(); render();
+      };
+      window.buyItem = (id) => {
+        if (!state.user) return openAuth();
+        const m = state.marketplace.find((x) => x.id === id);
+        if (!m || m.stock <= 0) return;
+        m.stock -= 1;
+        m.sold += 1;
+        const split = Math.max(1, Math.round(m.price * 0.1));
+        state.transactions.unshift({
+          date: new Date().toISOString().slice(0, 10),
+          title: `Marketplace: ${m.title}`,
+          party: `${state.user.name} (${state.user.userId})`,
+          fund: "Hardware Grants",
+          amount: split
+        });
+        document.getElementById("market-msg").textContent = `Purchased ${m.title} under ${state.user.userId}. $${split} routed to Hardware Grants.`;
+        save(); render();
+      };
+
+      document.getElementById("donate-form").onsubmit = (e) => {
+        e.preventDefault();
+        const amount = Math.max(1, Number(document.getElementById("donate-amount").value || 0));
+        const name = document.getElementById("donor-name").value.trim() || (state.user ? `${state.user.name} (${state.user.userId})` : "Anonymous Maker");
+        const fund = document.getElementById("donate-fund").value;
+        state.transactions.unshift({
+          date: new Date().toISOString().slice(0, 10),
+          title: "shopAI Community Donation",
+          party: name,
+          fund,
+          amount
+        });
+        document.getElementById("donate-msg").textContent = `Thank you! $${amount} added to the shopAI Community Fund (${fund}).`;
+        e.target.reset();
+        save(); render();
+      };
+
+      render();
+    </script>
+  </body>
+<
